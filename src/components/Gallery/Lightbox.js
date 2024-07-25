@@ -27,6 +27,11 @@ const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
     setZoom(prevZoom => Math.max(prevZoom - 0.2, 1)); // Min zoom level
   };
 
+  const handleThumbnailClick = (index) => {
+    setCurrentIndex(index);
+    setZoom(1); // Reset zoom on thumbnail click
+  };
+
   return (
     <div className="lightbox-overlay" onClick={onClose}>
       <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
@@ -48,6 +53,17 @@ const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
         <div className="zoom-controls">
           <button onClick={handleZoomIn}>+</button>
           <button onClick={handleZoomOut}>-</button>
+        </div>
+        <div className="thumbnail-container">
+          {images.map((thumb, index) => (
+            <img
+              key={index}
+              src={thumb.thumbnail || thumb.src}
+              alt={thumb.alt_thumbnail || thumb.alt}
+              className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => handleThumbnailClick(index)}
+            />
+          ))}
         </div>
       </div>
     </div>
