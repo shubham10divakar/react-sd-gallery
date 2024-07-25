@@ -1,10 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Lightbox.css';
 
-const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
+const Lightbox = ({ image, images, onClose, onNext, onPrev, autoplayTime = 3000 }) => {
   const [currentIndex, setCurrentIndex] = useState(images.indexOf(image));
   const [zoom, setZoom] = useState(1);
+  const [isAutoplay, setIsAutoplay] = useState(false);
   const lightboxRef = useRef(null);
+
+  useEffect(() => {
+    let intervalId;
+    if (isAutoplay) {
+      intervalId = setInterval(() => {
+        handleNext();
+      }, autoplayTime);
+    }
+    return () => clearInterval(intervalId);
+  }, [isAutoplay, currentIndex, autoplayTime]);
 
   const handleNext = () => {
     const nextIndex = (currentIndex + 1) % images.length;
@@ -43,6 +54,10 @@ const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
     }
   };
 
+  const toggleAutoplay = () => {
+    setIsAutoplay(prev => !prev);
+  };
+
   return (
     <div className="lightbox-overlay" onClick={onClose}>
       <div className="lightbox-content" onClick={(e) => e.stopPropagation()} ref={lightboxRef}>
@@ -65,6 +80,9 @@ const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
           <button onClick={handleZoomIn}>+</button>
           <button onClick={handleZoomOut}>-</button>
           <button onClick={handleFullScreen}>⤢</button>
+          <button onClick={toggleAutoplay}>
+            {isAutoplay ? 'Pause' : 'Play'}
+          </button>
         </div>
         <div className="thumbnail-container">
           {images.map((thumb, index) => (
