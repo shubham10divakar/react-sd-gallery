@@ -13,10 +13,26 @@ export const Gallery = ({ images}) => {
     setSelectedImage(null);
   };
 
+  const handleNextImage = (nextImage) => {
+    setSelectedImage(nextImage);
+  };
+
+  const handlePrevImage = (prevImage) => {
+    setSelectedImage(prevImage);
+  };
+
   return (
     <div>
       <GalleryCore images={images} onImageClick={handleImageClick} />
-      {selectedImage && <Lightbox image={selectedImage} onClose={handleCloseLightbox} />}
+      {selectedImage && (
+        <Lightbox
+          image={selectedImage}
+          images={images}
+          onClose={handleCloseLightbox}
+          onNext={handleNextImage}
+          onPrev={handlePrevImage}
+        />
+      )}
     </div>
   );
 };

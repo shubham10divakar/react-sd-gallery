@@ -12,12 +12,14 @@
 }
 
 .lightbox-content {
+  position: relative;
   text-align: center;
 }
 
 .lightbox-image {
   max-width: 90%;
   max-height: 80vh;
+  transition: opacity 0.5s ease-in-out; /* Example transition effect */
 }
 
 .lightbox-caption {
@@ -26,4 +28,24 @@
   font-size: 16px;
   max-width: 90%;
   text-align: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
 }
