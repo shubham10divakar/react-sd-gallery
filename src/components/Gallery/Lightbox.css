@@ -14,12 +14,21 @@
 .lightbox-content {
   position: relative;
   text-align: center;
+  border: 2px solid #ddd; /* Optional: border around the lightbox content */
+  border-radius: 8px;    /* Optional: rounded corners for the lightbox content */
+  padding: 10px;
+  background-color: #fff; /* Background color for better visibility */
+}
+
+.lightbox-image-container {
+  position: relative;
+  overflow: hidden;
 }
 
 .lightbox-image {
   max-width: 90%;
   max-height: 80vh;
-  transition: opacity 0.5s ease-in-out; /* Example transition effect */
+  transition: transform 0.3s ease-in-out;
 }
 
 .lightbox-caption {
@@ -48,4 +57,22 @@
 
 .arrow-right {
   right: 10px;
+}
+
+.zoom-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.zoom-controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
 }
