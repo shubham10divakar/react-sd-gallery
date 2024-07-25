@@ -1,7 +1,7 @@
 
 [![npm version](https://badge.fury.io/js/react-csv-parser.svg)](https://badge.fury.io/js/react-csv-parser)
 
-React CSV Parser is a simple React component library for reading csv files from your local and makes the data of the CSV file available in JS code for further modifications and use cases like using that data for feeding to charts and for generating statistics.
+React Sleek Design Gallery is a simple React component library for reading csv files from your local and makes the data of the CSV file available in JS code for further modifications and use cases like using that data for feeding to charts and for generating statistics.
 ## NPM 
 NPM Link - https://www.npmjs.com/package/react-csv-parser?activeTab=readme
 
@@ -10,7 +10,7 @@ NPM Link - https://www.npmjs.com/package/react-csv-parser?activeTab=readme
 Install `react-csv-parser` using npm or yarn:
 
 ```bash
-npm install react-csv-parser
+npm install react-sd-gallery
 
 or
 

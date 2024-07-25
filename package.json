@@ -1,7 +1,7 @@
 {
-  "name": "react-csv-parser",
-  "version": "1.0.2",
-  "description": "React CSV Parser is a simple React component library for reading csv files from your local and makes the data of the CSV file available in JS code for further modifications and use cases like using that data for feeding to charts and for generating statistics. ",
+  "name": "react-sd-gallery",
+  "version": "1.0.1",
+  "description": "React CSV Parser is a React component library for adding image or video library to your react application, supports lazy loading as well. ",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
@@ -35,9 +35,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shubham10divakar/react-csv-parser"
+    "url": "https://github.com/shubham10divakar/react-sd-gallery"
   },
   "dependencies": {
+    "react-lazyload": "^3.2.1",
     "react-router-dom": "^6.24.1"
   }
 }
