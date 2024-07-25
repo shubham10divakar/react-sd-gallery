@@ -11,14 +11,14 @@ const stories = storiesOf('App Test', module);
 stories.add('App', () => {
  
   const images = [
-    { src: image1, alt: 'Image 1' },
-    { src: image2, alt: 'Image 2' },
-    { src: image1, alt: 'Image 1' },
-    { src: image1, alt: 'Image 1' },
-    { src: image1, alt: 'Image 1' },
-    { src: image2, alt: 'Image 2' },
-    { src: image1, alt: 'Image 1' },
-    { src: image1, alt: 'Image 1' },
+    { src: image1, alt: 'Image 1', caption: 'test1 caption' },
+    { src: image2, alt: 'Image 2', caption: 'test1 caption' },
+    { src: image1, alt: 'Image 1', caption: 'test1 caption' },
+    { src: image1, alt: 'Image 1', caption: 'test1 caption' },
+    { src: image1, alt: 'Image 1', caption: 'test1 caption' },
+    { src: image2, alt: 'Image 2', caption: 'test1 caption' },
+    { src: image1, alt: 'Image 1', caption: 'test1 caption' },
+    { src: image1, alt: 'Image 1', caption: 'test1 caption' },
     // Add more images as needed
   ];
 
