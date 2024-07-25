@@ -31,6 +31,7 @@ export const Gallery = ({ images}) => {
           onClose={handleCloseLightbox}
           onNext={handleNextImage}
           onPrev={handlePrevImage}
+          autoplayTime={2000}
         />
       )}
     </div>
