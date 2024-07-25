@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Lightbox.css';
 
 const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
   const [currentIndex, setCurrentIndex] = useState(images.indexOf(image));
   const [zoom, setZoom] = useState(1);
+  const lightboxRef = useRef(null);
 
   const handleNext = () => {
     const nextIndex = (currentIndex + 1) % images.length;
@@ -32,9 +33,19 @@ const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
     setZoom(1); // Reset zoom on thumbnail click
   };
 
+  const handleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      lightboxRef.current.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   return (
     <div className="lightbox-overlay" onClick={onClose}>
-      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+      <div className="lightbox-content" onClick={(e) => e.stopPropagation()} ref={lightboxRef}>
         <button className="arrow arrow-left" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>
           &lt;
         </button>
@@ -53,6 +64,7 @@ const Lightbox = ({ image, images, onClose, onNext, onPrev }) => {
         <div className="zoom-controls">
           <button onClick={handleZoomIn}>+</button>
           <button onClick={handleZoomOut}>-</button>
+          <button onClick={handleFullScreen}>⤢</button>
         </div>
         <div className="thumbnail-container">
           {images.map((thumb, index) => (
