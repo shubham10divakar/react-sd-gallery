@@ -1,48 +1,76 @@
 
-[![npm version](https://badge.fury.io/js/react-csv-parser.svg)](https://badge.fury.io/js/react-csv-parser)
+[![npm version](https://badge.fury.io/js/react-sd-gallery.svg)](https://badge.fury.io/js/react-sd-gallery)
 
-React Sleek Design Gallery is a simple React component library for reading csv files from your local and makes the data of the CSV file available in JS code for further modifications and use cases like using that data for feeding to charts and for generating statistics.
+React Sleek Design Gallery is a customizable React gallery library that provides an immersive image viewing experience with features like lazy loading, lightbox with zoom and pan, customizable transition effects, image captions, fullscreen mode, thumbnail navigation, autoplay slideshow, and mobile gesture support.
+
 ## NPM 
-NPM Link - https://www.npmjs.com/package/react-csv-parser?activeTab=readme
+NPM Link - https://www.npmjs.com/package/react-sd-gallery?activeTab=readme
+
+## Features
+1. Lazy Loading: Load images as they appear in the viewport, improving performance.
+2. Lightbox: Display images in a full-screen overlay with zoom and pan capabilities.
+3. Customizable Transition Effects: Switch between images with various transition effects like fade and slide.
+4. Image Captions: Show captions on image hover or inside the lightbox.
+5. Fullscreen Mode: View images in fullscreen with a simple toggle.
+6. Thumbnail Navigation: Quickly navigate through images using thumbnail previews.
+7. Autoplay Slideshow: Automatically transition through images at a user-defined interval.
+8. Mobile Gesture Support: Navigate through images and control zoom with intuitive touch gestures.(In development)
 
 ## Installation
 
-Install `react-csv-parser` using npm or yarn:
+Install `react-sd-gallery` using npm or yarn:
 
 ```bash
 npm install react-sd-gallery
+```
+or bash
+```
+yarn add react-sd-gallery
+```
+## Usage
 
-or
-
-bash
-
-yarn add react-csv-parser
-
-Usage
-
-Import CSV Parser component from react-csv-parser and use it in your React application:
+Here's an example of how to use the library in your React application:
 
 jsx
-
-// App.js
-import logo from './logo.svg';
-import './App.css';
-import { CSVParser } from 'react-csv-parser';
-
-function App() {
-  const fetchdatahandler = (data) => {
-    console.log(data)
-  };
-
-  return (
-    <div className="App">
-      <CSVParser onFileParsed={fetchdatahandler}/>
-    </div>
-  );
-}
-
-export default App;
 ```
+// App.js
+import React from 'react';
+import { Gallery } from 'react-sd-gallery';
+
+const images = [
+  {
+    src: 'path/to/image1.jpg',
+    alt: 'Image 1',
+    thumbnail: 'path/to/thumbnail1.jpg',
+    alt_thumbnail: 'Thumbnail 1',
+    caption: 'This is image 1'
+  },
+  {
+    src: 'path/to/image2.jpg',
+    alt: 'Image 2',
+    thumbnail: 'path/to/thumbnail2.jpg',
+    alt_thumbnail: 'Thumbnail 2',
+    caption: 'This is image 2'
+  },
+  // More images...
+];
+
+const MyGallery = () => (
+  <Gallery images={images} autoplayTime={5000} />
+);
+
+export default MyGallery;
+```
+
+# Props
+
+- images: An array of image objects, each containing:
+- src: The main image source.
+- alt: Alt text for the main image.
+- thumbnail: (Optional) Thumbnail image source.
+- alt_thumbnail: (Optional) Alt text for the thumbnail.
+- caption: (Optional) Caption text for the image.
+- autoplayTime: (Optional) Interval time in milliseconds for the autoplay slideshow.
 
 ## Images as per above code output and some work samples
 
@@ -50,10 +78,10 @@ export default App;
 ![This is an alt text.](/image/2.png "This is a sample image.")
 
 
-# Props
 
-onFileParsed: A callback function that will be called with the parsed CSV data.
-
+## Contribution
+Contributions are welcome! Please submit a pull request or open an issue to suggest improvements or report bugs.
+This is still in development hence suggest improvements.
 
 ## About Me
 I am Subham Divakar and I am the developer of multiple python and react libraries.
