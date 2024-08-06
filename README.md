@@ -76,6 +76,9 @@ export default MyGallery;
 
 ![This is an alt text.](/image/1.png "This is a sample image.")
 ![This is an alt text.](/image/2.png "This is a sample image.")
+![This is an alt text.](/image/3.png "This is a sample image.")
+![This is an alt text.](/image/4.png "This is a sample image.")
+![This is an alt text.](/image/5.png "This is a sample image.")
 
 
 
